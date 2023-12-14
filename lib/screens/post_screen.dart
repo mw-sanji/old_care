@@ -81,7 +81,7 @@ class PostScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const CommentWidget()
+            CommentWidget()
           ],
         ),
       ),

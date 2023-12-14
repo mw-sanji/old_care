@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:old_care/utils/colors.dart';
 
-class CommentWidget extends StatelessWidget {
-  const CommentWidget({super.key});
+class CommentWidget extends StatefulWidget {
+  CommentWidget({super.key});
 
+  @override
+  State<CommentWidget> createState() => _CommentWidgetState();
+}
+
+class _CommentWidgetState extends State<CommentWidget> {
+  bool isClicked = false;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -118,7 +124,22 @@ class CommentWidget extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.favorite_outline),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isClicked = !isClicked;
+                            });
+                          },
+                          icon: !isClicked
+                              ? const Icon(
+                                  Icons.favorite_border,
+                                  color: Colors.black,
+                                )
+                              : const Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                ),
+                        ),
                         SizedBox(
                           width: 5,
                         ),
